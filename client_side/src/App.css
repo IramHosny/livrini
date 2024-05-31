@@ -1,0 +1,36 @@
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-logo {
+  flex-shrink: 0;
+}
+
+.logo-img {
+  width: 900px;
+  height: auto;
+  padding-top: 10px;
+}
+
+.navbar-collapse {
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.nav-link-custom {
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+  font-family: cursive;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.nav-link-custom.highlight {
+  color: #f15d00;
+}
