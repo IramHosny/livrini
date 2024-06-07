@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import RestaurantList from './components/RestaurantList';
 import Avis from './components/Avis';
 import Contact from './components/Contact';
+import Dashboard from './components/Dashboard';
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
      <Route path="/avis" element={ <Avis/> } />
      <Route path="/contact" element={ <Contact/> } />
      </Routes>
+     
     </div>
   );
 }

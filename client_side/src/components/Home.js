@@ -6,7 +6,9 @@ function Home() {
        <video autoPlay muted loop width={'100%'} height={'auto'}>
     <source src="./home.mp4" type="video/mp4"/>
     </video>
-    
+    <div>
+  
+    </div>
     </div>
   )
 }

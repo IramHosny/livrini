@@ -19,7 +19,8 @@ function About() {
           depuis plusieurs restaurants partenaires, garantissant une livraison rapide et fiable. 
           Que ce soit pour une soirée entre amis ou un déjeuner au bureau, 
           <span style={{color:'#f15d00'}}> Livrini</span> est là pour satisfaire toutes vos envies culinaires.. 
-          </p>
+          </p> </Fade>
+           <Fade>
           <p className="lead" style={{color:'#f15d00',fontStyle:'italic',fontFamily:'cursive',fontSize:'18px',fontWeight:'bold'}}>
           Livrini : Vos saveurs préférées, livrées en un clic !
           </p>
