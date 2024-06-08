@@ -1,12 +1,14 @@
 import React from 'react'
+import AddRestaurant from './AddRestaurant'
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
-<<<<<<< HEAD
+    <div>
+      <AddRestaurant/>
+    </div>
+
     
-=======
->>>>>>> c181d500db50036a93f2ec973bdcf2950206d309
+
   )
 }
 

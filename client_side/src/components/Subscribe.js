@@ -34,10 +34,10 @@ function Subscribe() {
           </div>
           <div>
             <form className="login-form" onSubmit={(e)=>e.preventDefault()}>
-              <input type="email" placeholder="Nom" onChange={(e)=> setregister({...register,lastname : e.target.value})} required />
-              <input type="email" placeholder="Prénom" onChange={(e)=> setregister({...register,name : e.target.value})} required/>
-              <input type="email" placeholder="Adresse" onChange={(e)=> setregister({...register,adress : e.target.value})} required/>
-              <input type="email" placeholder="Téléphone" onChange={(e)=> setregister({...register,phonenumber : e.target.value})} required />
+              <input type="text" placeholder="Nom" onChange={(e)=> setregister({...register,lastname : e.target.value})} required />
+              <input type="text" placeholder="Prénom" onChange={(e)=> setregister({...register,name : e.target.value})} required/>
+              <input type="text" placeholder="Adresse" onChange={(e)=> setregister({...register,adress : e.target.value})} required/>
+              <input type="text" placeholder="Téléphone" onChange={(e)=> setregister({...register,phonenumber : e.target.value})} required />
               <input type="email" placeholder="email" onChange={(e)=> setregister({...register,email : e.target.value})} required/>
               <input type="password" placeholder="mot de passe" onChange={(e)=> setregister({...register,password : e.target.value})} required/>
               <input type="submit" onClick={()=>{

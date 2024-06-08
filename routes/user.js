@@ -3,127 +3,118 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userRouter = express.Router();
-const {registerRules,loginRules,validation} = require("../middleware/validator");
+const { registerRules, loginRules, validation } = require("../middleware/validator");
 const isAuth = require('../middleware/passport');
 
-//register new user "post"
-userRouter.post("/register", registerRules(), validation, async(req, res)=>{
-    const {name, lastname,adress, phonenumber,email, password, role} = req.body;
+// Register new user "post"
+userRouter.post("/register", registerRules(), validation, async (req, res) => {
+    const { name, lastname, address, phonenumber, email, password, role } = req.body;
     try {
-       const newuser =  new User({name, lastname ,adress, phonenumber, email, password, role});
+        const newUser = new User({ name, lastname, address, phonenumber, email, password, role });
 
-       //hash password
-       const salt = 10 ; 
-       const gensalt = await bcrypt.genSalt(salt);
-       const hashedpassword = await bcrypt.hash(password,gensalt);
-       newuser.password = hashedpassword ;
+        // Hash password
+        const salt = 10;
+        const genSalt = await bcrypt.genSalt(salt);
+        const hashedPassword = await bcrypt.hash(password, genSalt);
+        newUser.password = hashedPassword;
 
+        // Check if email exists
+        const searchedUser = await User.findOne({ email });
+        if (searchedUser) {
+            return res.status(400).send({ msg: "Email already exists" });
+        }
 
-       //check email exist or not
-       const searcheduser = await User.findOne({email});
-       if (searcheduser){
-        res.status(400).send({msg:"email already exist"},);
-       }
-
-       //save user
-        //generate a token 
-        const newUserToken = await newuser.save();
+        // Save user and generate a token
+        const newUserToken = await newUser.save();
         const payload = {
             _id: newUserToken._id,
-            name : newUserToken.name,
-               }
-           const token = await jwt.sign(payload,process.env.SecretOrKey,{
-            expiresIn:3600,
-           });
+            name: newUserToken.name,
+        };
+        const token = await jwt.sign(payload, process.env.SecretOrKey, {
+            expiresIn: 3600,
+        });
 
-       res.status(200).send({newUserToken, msg :"user is saved", token : `Bearer ${token}`});
+        return res.status(200).send({ newUserToken, msg: "User is saved", token: `Bearer ${token}` });
     } catch (error) {
         console.log(error);
-        console.log("can not save the user");
+        return res.status(500).send({ msg: "Cannot save the user" });
     }
-}
-)
+});
 
-//login
-userRouter.post("/login", loginRules(), validation, async(req, res)=>{
-    const {email,password} = req.body ;
+// Login
+userRouter.post("/login", loginRules(), validation, async (req, res) => {
+    const { email, password } = req.body;
     try {
-        //find if the user exist
-        const searcheduser = await User.findOne({email});
+        // Find if the user exists
+        const searchedUser = await User.findOne({ email });
 
-        //if the email not exist
-       if (!searcheduser){
-        res.status(400).send({msg:"verifier vos info"},);
-       }
+        // If the email does not exist
+        if (!searchedUser) {
+            return res.status(400).send({ msg: "Invalid email or password" });
+        }
 
-       //if the passwords are equals
-       const match = await bcrypt.compare(password,searcheduser.password);
-       if (!match) {
-        res.status(400).send({msg:"verifier vos info"});
-       }
+        // Check if the passwords match
+        const match = await bcrypt.compare(password, searchedUser.password);
+        if (!match) {
+            return res.status(400).send({ msg: "Invalid email or password" });
+        }
 
-       //create a token
-       const payload = {
-        _id : searcheduser._id,
-        name : searcheduser.name,
+        // Create a token
+        const payload = {
+            _id: searchedUser._id,
+            name: searchedUser.name,
+        };
+        const token = await jwt.sign(payload, process.env.SecretOrKey, {
+            expiresIn: 3600,
+        });
 
-       }
-       const token = await jwt.sign(payload,process.env.SecretOrKey,{
-        expiresIn:3600,
-       });
-
-       //send the user
-       res.status(200).send({user:searcheduser, msg : "success", token : `Bearer ${token}`});
-
+        // Send the user
+        return res.status(200).send({ user: searchedUser, msg: "Success", token: `Bearer ${token}` });
     } catch (error) {
         console.log(error);
-        res.status(500).send({msg:"can not find the user"});
+        return res.status(500).send({ msg: "Cannot find the user" });
     }
-}
-)
+});
 
-//get current profile
-userRouter.get("/current", isAuth(),(req,res) => {
-    res.status(200).send({user:req.user});
-})
+// Get current profile
+userRouter.get("/current", isAuth(), (req, res) => {
+    return res.status(200).send({ user: req.user });
+});
 
-//update user
+// Update user
 userRouter.put("/:_id", async (req, res) => {
     try {
-      let result = await User.findByIdAndUpdate(
-        { _id: req.params._id },
-        { $set: req.body }
-      );
-      res.send({ msg: " user updated " });
+        let result = await User.findByIdAndUpdate(
+            { _id: req.params._id },
+            { $set: req.body }
+        );
+        return res.status(200).send({ msg: "User updated" });
     } catch (error) {
-      res.send({ msg: "fail" });
-      console.log(error);
+        console.log(error);
+        return res.status(500).send({ msg: "Failed to update user" });
     }
-  });
+});
 
-//get allusers
+// Get all users
 userRouter.get("/allusers", async (req, res) => {
-  try {
-    let result = await User.find();
-    res.send({ users: result, msg: "all users " });
-  } catch (error) {
-    res.send({ msg: "fail" });
-    console.log(error);
-  }
+    try {
+        let result = await User.find();
+        return res.status(200).send({ users: result, msg: "All users" });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({ msg: "Failed to retrieve users" });
+    }
 });
 
-//delete user 
+// Delete user
 userRouter.delete("/:_id", async (req, res) => {
-  try {
-    let result = await User.findByIdAndDelete({ _id: req.params._id });
-    res.send({ msg: "user deleted " });
-  } catch (error) {
-    res.send({ msg: "fail" });
-    console.log(error);
-  }
+    try {
+        let result = await User.findByIdAndDelete({ _id: req.params._id });
+        return res.status(200).send({ msg: "User deleted" });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({ msg: "Failed to delete user" });
+    }
 });
 
-
-
-
-module.exports = userRouter; 
+module.exports = userRouter;

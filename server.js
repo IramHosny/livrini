@@ -11,6 +11,8 @@ db_connect();
 
 //routes
 app.use("/user", require("./routes/user"));
+app.use("/restaurant", require("./routes/restaurant"));
+app.use("/article", require("./routes/article"));
 
 
 
