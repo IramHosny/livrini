@@ -43,7 +43,7 @@ function Subscribe() {
               <input type="submit" onClick={()=>{
                 dispatch(userRegister(register));
                 setTimeout(() => {
-                    navigate("/userProfile")
+                    navigate("/userprofile")
                   }, 1000);
               }}/>
             </form>

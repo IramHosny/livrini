@@ -22,7 +22,7 @@ function RestaurantList({ping,setping}) {
        <Button className='btn_card' variant="outline-success" style={{backgroundColor:'#f15d00' , border:'none', color:'white'}} > Chercher </Button>
      </Form> </center>
    <div className='restaurant_list'>
-   {restaurants?.filter((el)=>el?.adress.toLowerCase().includes(text.toLowerCase())).map((el)=> <RestaurantCard restaurant={el} />)}  
+   {restaurants?.filter((el)=>el?.adress.toLowerCase().includes(text.toLowerCase())).map((el)=>  <RestaurantCard key={el._id} restaurant={el} />)}  
 </div>
 </div>
   )

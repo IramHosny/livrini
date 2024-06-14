@@ -17,7 +17,7 @@ function Navbarr() {
          <Navbar expand="lg" className="bg-body-tertiary" style={{width:'100%'}}>
       <Container>
       
-        <Navbar.Brand href="#home"><Link style={{textDecoration:'none'}} to="/"> <h1 style={{ color:'#f15d00'}}>LIVRINI</h1> </Link></Navbar.Brand>
+        <Navbar.Brand href="#home"><Link style={{textDecoration:'none'}} to="/"> <h1 style={{ color:'#f15d00',marginTop:'-2px'}}>LIVRINI</h1> </Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" style={{ width: '100%', justifyContent: 'flex-end' }}>

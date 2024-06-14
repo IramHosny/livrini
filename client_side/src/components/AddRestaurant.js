@@ -15,6 +15,7 @@ function AddRestaurant({ping,setping}) {
     description: "",
     owner:"",
     image:"",
+    horaire:"",
     })
 const dispatch= useDispatch();
   return (
@@ -53,6 +54,10 @@ const dispatch= useDispatch();
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>L'image du restaurant </Form.Label>
         <Form.Control type="text" placeholder="Entrez l'image du restaurant" onChange={(e)=>setrestaurant({...restaurant, image:e.target.value})} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>L'horaire du restaurant </Form.Label>
+        <Form.Control type="text" placeholder="Entrez l'horaire du restaurant" onChange={(e)=>setrestaurant({...restaurant, horaire:e.target.value})} />
       </Form.Group>
       
     </Form>

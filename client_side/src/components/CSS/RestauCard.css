@@ -201,3 +201,20 @@ p {
     transition-delay: 500ms;
   }
 }
+ a:hover {
+  opacity: 1;
+  transition: opacity .5s .1s ease-in;
+}
+ 
+  a {
+ 
+max-width: 80%;
+  border-radius: 20%;
+  height: 25%;
+  transition: opacity .3s ease-out;
+  color: hsl(29, 98%, 51%);;
+  font-family: var(--font-text);
+  inset: auto auto 40px 30px;
+  color: hsl(29, 98%, 51%);;
+  text-decoration: none;
+}

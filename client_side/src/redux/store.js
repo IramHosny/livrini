@@ -9,9 +9,8 @@ export const store = configureStore({
   reducer: {
     user : userSlice,
     users : usersSlice,
-    // article : articleSlice,
+    article : articleSlice,
     restaurant : restaurantSlice,
-
  
   },
 })

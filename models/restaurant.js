@@ -7,7 +7,7 @@ const restaurantSchema = new schema({
     description : {type:String , required:true},
     owner : {type:String , required:true},
     image : {type:String , required:true},
-   
+    horaire : {type:String , required:true},
     }
   );
   

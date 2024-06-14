@@ -8,9 +8,9 @@ const isAuth = require('../middleware/passport');
 
 // Register new user "post"
 userRouter.post("/register", registerRules(), validation, async (req, res) => {
-    const { name, lastname, address, phonenumber, email, password, role } = req.body;
+    const { name, lastname, adress, phonenumber, email, password, role } = req.body;
     try {
-        const newUser = new User({ name, lastname, address, phonenumber, email, password, role });
+        const newUser = new User({ name, lastname, adress, phonenumber, email, password, role });
 
         // Hash password
         const salt = 10;

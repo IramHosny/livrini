@@ -35,7 +35,9 @@ function Login() {
               <input type="password" placeholder="mot de passe" onChange={(e)=> setlogin({...login,password : e.target.value})}/>
 
               <input type="submit"  onClick={() => {dispatch(userLogin(login)); 
-                } }/>
+               setTimeout(() => {
+                navigate("/")
+              }, 1000); } }/>
             </form>
             <div className="login-netoworks">
               <p>Vous n'avez pas un compte? <Link to="/subscribe"><span>S'inscrire</span></Link></p>

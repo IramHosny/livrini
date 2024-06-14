@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 function Home() {
   return (
     <div className='home'>
@@ -7,7 +8,6 @@ function Home() {
     <source src="./home.mp4" type="video/mp4"/>
     </video>
     <div>
-  
     </div>
     </div>
   )

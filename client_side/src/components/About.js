@@ -11,8 +11,8 @@ function About() {
     <div className="row gx-4 align-items-center justify-content-between">
       <div className="col-md-5 order-2 order-md-1">
         <div className="mt-5 mt-md-0">
-          <span className="text-muted" style={{color:'black',fontStyle:'italic',fontFamily:'cursive',fontSize:'20px',fontWeight:'bold'}}>Our Story</span>
-          <h2 className="display-5 fw-bold" style={{color:'#f15d00',fontStyle:'italic',fontFamily:'cursive',fontSize:'50px',fontWeight:'bold'}}>About Us</h2>
+          <span className="text-muted" style={{color:'black',fontStyle:'italic',fontFamily:'cursive',fontSize:'20px',fontWeight:'bold'}}>Notre histoire ! </span>
+          <h2 className="display-5 fw-bold" style={{color:'#f15d00',fontStyle:'italic',fontFamily:'cursive',fontSize:'50px',fontWeight:'bold'}}>A propos de nous </h2>
           <Fade><p className="lead" style={{fontStyle:'italic',fontFamily:'cursive',fontSize:'20px',fontWeight:'bold',marginTop:'5%'}}>
           Bienvenue sur <span style={{color:'#f15d00'}}> Livrini</span>, votre solution de livraison de fast-food multi-restaurant. Avec Livrini, découvrez une variété de saveurs, allant des burgers juteux aux sushis frais, le tout à portée de clic. Notre plateforme 
           intuitive vous permet de commander facilement vos plats préférés 
