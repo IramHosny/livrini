@@ -9,7 +9,7 @@ import Login from './components/Login';
 import UserProfile from './components/UserProfile';
 import PrivateRoute from './routes/PrivateRoute';
 import Dashboard from './components/Dashboard';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getusers } from './redux/usersSlice';
 import { userCurrent } from './redux/userSlice';
@@ -23,6 +23,8 @@ import { getarticle } from './redux/articleSlice';
 import RestaurantListAdmin from './components/RestaurantListAdmin';
 import ArticleListAdmin from './components/ArticleListAdmin';
 import UserListAdmin from './components/UserListAdmin';
+import Avis from './components/Avis';
+import { getcomment } from './redux/commentSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,7 +35,9 @@ function App() {
     dispatch(userCurrent());
     dispatch(getrestaurant());
     dispatch(getarticle());
+    dispatch(getcomment());
   }, [ping]);
+  const comments = useSelector(state => state.comment?.commentlist);
 
   return (
     <div className="App">
@@ -41,6 +45,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/avis" element={<Avis comments={comments} />} />
         <Route path="/restaurant" element={<RestaurantList ping={ping} setping={setping} />} />
         <Route path="/articles" element={<ArticleList ping={ping} setping={setping} />} />
         <Route path="/contact" element={<Contact />} />

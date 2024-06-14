@@ -3,6 +3,7 @@ import userSlice from './userSlice'
 import usersSlice from './usersSlice'
 import  articleSlice  from './articleSlice'
 import  restaurantSlice  from './restaurantSlice'
+import commentSlice from './commentSlice'
 
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
     users : usersSlice,
     article : articleSlice,
     restaurant : restaurantSlice,
+    comment: commentSlice,
  
   },
 })

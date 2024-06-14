@@ -396,7 +396,7 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
   height: auto;
@@ -408,7 +408,7 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 32%;
   height: auto;
   background: rgb(231, 107, 6);
@@ -430,24 +430,27 @@ html {
 
 
 .featured-clay > div > div:nth-child(1) {
-  all: unset;
-  width: 40%;
-  height: 250px;
-  background: url("https://www.creativefabrica.com/wp-content/uploads/2021/05/15/restaurant-logo-Graphics-12037753-1.jpg");
+    all: unset;
+    width: 40%;
+    height: 250px;
+    background: url("https://png.pngtree.com/template/20200704/ourlarge/pngtree-restaurant-logo-design-vector-template-image_388753.jpg");
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: center; /* Pour centrer l'image */
+    border-radius: 12px;
+  }
   
-  background-repeat: no-repeat;
-  border-radius: 12px;
+  .featured-clay > div:nth-child(2) > div:nth-child(1) {
+    background: url("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/fast-food-logo-design-template-b2a0c1c6424c748c154a7c9da384813a_screen.jpg?ts=1649461735");
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: center; /* Pour centrer l'image */
+    width: 40%; /* Ajuster la largeur si nécessaire */
+    height: 250px; /* Ajuster la hauteur si nécessaire */
+  }
   
-}
 
-.featured-clay > div:nth-child(2) > div:nth-child(1) {
-  background: url("https://www.creativefabrica.com/wp-content/uploads/2021/05/15/restaurant-logo-Graphics-12037753-1.jpg");
-  background-repeat: no-repeat;}
 
-.featured-clay > div:nth-child(3) > div:nth-child(1) {
-  background: url("https://cdn.iconscout.com/icon/premium/png-128-thumb/veterinary-9-989739.png");
-  background-repeat: no-repeat;
-}
 
 
 
@@ -638,6 +641,7 @@ html {
 
 .featured-users::after {
   position: absolute;
+  justify-content: space-around;
   bottom: 0;
   right: 0;
   width: 300px;
@@ -652,7 +656,7 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-around;
   width: 100%;
   height: auto;
 }
@@ -661,7 +665,7 @@ html {
   width: 80px;
   height: 80px;
   border-radius: 10px;
-  background: url("https://static.thenounproject.com/png/3324336-200.png");
+  background: url("");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -669,8 +673,8 @@ html {
 }
 
 .featured-users > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) {
-  background: url("https://cdn-icons-png.flaticon.com/128/6784/6784520.png");
-  }
+  background: url("https://static.vecteezy.com/system/resources/previews/009/636/683/original/admin-3d-illustration-icon-png.png");
+  background-size: contain;}
 
 .featured-users > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) {
   background: url("https://picsum.photos/id/441/80/80");
@@ -682,7 +686,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-around;
   margin-left: 15px;
 }
 
@@ -706,7 +710,7 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-around;
   width: 100%;
   height: auto;
 }
@@ -732,7 +736,7 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-around;
   width: 100%;
   height: auto;
   margin-top: 15px;
@@ -757,7 +761,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   box-shadow: 0 6px 15px 0 #f15d00, inset 0px -7px 12px 1px black;
   margin-right: 10px;
 }
