@@ -81,7 +81,7 @@ function Dashboard() {
           <div className="header">
             <div  className="clay-category">
         
-            <Link style={{textDecoration:'none'}} to="/admin/adoptRequestDog">  <p style={{color:'white'}}> Suivie des commandes </p> </Link>
+            <Link style={{textDecoration:'none'}} to="/adminorders">  <p style={{color:'white'}}> Suivie des commandes </p> </Link>
             </div>
            
             

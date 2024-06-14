@@ -23,8 +23,15 @@ import { getarticle } from './redux/articleSlice';
 import RestaurantListAdmin from './components/RestaurantListAdmin';
 import ArticleListAdmin from './components/ArticleListAdmin';
 import UserListAdmin from './components/UserListAdmin';
+
 import Avis from './components/Avis';
 import { getcomment } from './redux/commentSlice';
+
+import Panier from './components/Panier';
+import { getorders } from './redux/orderSlice';
+import ClientOrders from './components/ClientOrders';
+import AdminOrders from './components/AdminOrders';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -35,7 +42,11 @@ function App() {
     dispatch(userCurrent());
     dispatch(getrestaurant());
     dispatch(getarticle());
+
     dispatch(getcomment());
+
+    dispatch(getorders());
+
   }, [ping]);
   const comments = useSelector(state => state.comment?.commentlist);
 
@@ -47,7 +58,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/avis" element={<Avis comments={comments} />} />
         <Route path="/restaurant" element={<RestaurantList ping={ping} setping={setping} />} />
-        <Route path="/articles" element={<ArticleList ping={ping} setping={setping} />} />
+        <Route path=":name/:cat/articles" element={<ArticleList ping={ping} setping={setping} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/subscribe" element={<Subscribe />} />
@@ -57,6 +68,10 @@ function App() {
         <Route path="/restauadmin" element={<PrivateRoute><RestaurantListAdmin /></PrivateRoute>} />
         <Route path="/artiadmin" element={<PrivateRoute><ArticleListAdmin /></PrivateRoute>} />
         <Route path="/usersadmin" element={<PrivateRoute><UserListAdmin /></PrivateRoute>} />
+        <Route path="/panier" element={<PrivateRoute><Panier /></PrivateRoute>} />
+        <Route path="/clientorders" element={<PrivateRoute><ClientOrders /></PrivateRoute>} />
+        <Route path="/adminorders" element={<PrivateRoute><AdminOrders /></PrivateRoute>} />
+
       </Routes>
       <Footer />
     </div>

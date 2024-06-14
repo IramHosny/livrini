@@ -70,11 +70,11 @@ function AddArticle({ restaurantName,ping, setping }) {
                   onChange={handleInputChange}
                 >
                   <option value="">Sélectionnez une catégorie</option>
-    <option value="Petit-déjeuners">Petit-déjeuners</option>
-    <option value="Sandwichs-et-Pizzas">Sandwichs-et-Pizzas</option>
-    <option value="Plats">Plats</option>
-    <option value="Sucreries-et-Gâteaux">Sucreries-et-Gâteaux</option>
-    <option value="Boissons">Boissons</option>
+    <option value="petit_dejeuners">petit_déjeuners</option>
+    <option value="sandwich_pizza">Sandwich_Pizza</option>
+    <option value="plat">Plats</option>
+    <option value="sucres">Sucré</option>
+    <option value="boissons">Boissons</option>
                 </Form.Select>
               </Form.Group>
 
@@ -92,7 +92,7 @@ function AddArticle({ restaurantName,ping, setping }) {
                 <Form.Label>Le restaurant</Form.Label>
                 <Form.Control
                   type="text"
-                  value={restaurantName}
+                  placeholder={restaurantName}
                   name="nom_restaurant"
                   onChange={handleInputChange}
                 />
