@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 import './CSS/MenuRestaurant.css';
 import { useSelector } from 'react-redux';
 
 function MenuRestaurant() {
   const article= useSelector((state)=>state.article?.articlelist);
+  const resto = useParams() ;
+  console.log(resto)
 
   return (
     <>
@@ -37,7 +39,7 @@ function MenuRestaurant() {
               <div className="col-xs-12 col-sm-4">
                 <div className="card" style={{ background: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://cdn.sortiraparis.com/images/1001/100812/835348-l-escarpolette-coffee-shop-salon-de-the-restaurant-a-paris.jpg')" }}>
                  <div className="card-description">
-                    <h2> <Link style={{textDecoration:'none',color:'white',fontSize:'28px',marginBottom:'30px',fontWeight:'bolder'}} to={`/articles`}>Petit déjeuners </Link></h2>
+                    <h2> <Link style={{textDecoration:'none',color:'white',fontSize:'28px',marginBottom:'30px',fontWeight:'bolder'}} to={`/${resto?.name}/petit_dejeuners/articles`}>Petit déjeuners </Link></h2>
                     </div>
                 </div>
               </div>
@@ -45,7 +47,7 @@ function MenuRestaurant() {
                 <div className="card" style={{ background: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://i0.wp.com/societefacile.com/wp-content/uploads/2024/01/Tout-savoir-sur-le-Marche-des-fast-food.webp')" }}>
                   
                   <div className="card-description">
-                    <h2><Link style={{textDecoration:'none',color:'white',fontSize:'28px',marginBottom:'30px',fontWeight:'bolder'}} to={`/articles`}>Sandwichs et Pizzas </Link></h2>
+                    <h2><Link style={{textDecoration:'none',color:'white',fontSize:'28px',marginBottom:'30px',fontWeight:'bolder'}} to={`/${resto?.name}/sandwich_pizza/articles`}>Sandwichs et Pizzas </Link></h2>
                    
                   </div>
                 </div>
@@ -54,7 +56,7 @@ function MenuRestaurant() {
                 <div className="card" style={{ background: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://9a4yti-fi-dari.com/wp-content/uploads/2020/11/10.jpeg')" }}>
                 
                   <div className="card-description">
-                    <h2><Link style={{textDecoration:'none',color:'white',fontSize:'28px',marginBottom:'30px',fontWeight:'bolder'}} to={`/articles`}> Plats </Link> </h2>
+                    <h2><Link style={{textDecoration:'none',color:'white',fontSize:'28px',marginBottom:'30px',fontWeight:'bolder'}} to={`/${resto?.name}/plat/articles`}> Plats </Link> </h2>
                    
                   </div>
                   
@@ -65,7 +67,7 @@ function MenuRestaurant() {
                 <div className="card" style={{ background: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://img.cuisineaz.com/660x660/2016/05/30/i90732-tartines-de-gaufres-coco-au-nutella-fraises-bananes-et-noix.jpg')" }}>
                   
                   <div className="card-description">
-                    <h2><Link style={{textDecoration:'none',color:'white',fontSize:'28px',marginBottom:'30px',fontWeight:'bolder'}} to={`/articles`}>Sucreries et gâteaux </Link> </h2>
+                    <h2><Link style={{textDecoration:'none',color:'white',fontSize:'28px',marginBottom:'30px',fontWeight:'bolder'}} to={`/${resto?.name}/sucres/articles`}>Sucreries et gâteaux </Link> </h2>
                  
                   </div>
                  
@@ -75,7 +77,7 @@ function MenuRestaurant() {
                 <div className="card" style={{ background: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGwTwq3LrN3vA7Jz0TnrXBnDC_gaVeELSFmw&s')" }}>
                  
                   <div className="card-description">
-                    <h2> <Link style={{textDecoration:'none',color:'white',fontSize:'28px',marginBottom:'30px',fontWeight:'bolder'}} to={`/articles`}> Boissons </Link> </h2>
+                    <h2> <Link style={{textDecoration:'none',color:'white',fontSize:'28px',marginBottom:'30px',fontWeight:'bolder'}} to={`/${resto?.name}/boissons/articles`}> Boissons </Link> </h2>
                    
                   </div>
                   
