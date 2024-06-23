@@ -27,7 +27,9 @@ export const cartSlice = createSlice({
             toast.success(`${action.payload.name} a été ajouté avec succès`, { position : "bottom-left",});
 
             }
-        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));    
+        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));   
+        cartSlice.caseReducers.getTotals(state);
+ 
         },
     //remove item
         removeFromCart : (state, action) =>{
@@ -52,6 +54,7 @@ export const cartSlice = createSlice({
         toast.error(`${action.payload.name} a été supprimé `, { position : "bottom-right",});
        }
        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+       cartSlice.caseReducers.getTotals(state);
        },
     //clear cart 
        clearCart : (state, action) => {
